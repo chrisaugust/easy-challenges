@@ -5,13 +5,11 @@ class DNA
     @sequence = seq
   end
 
-  def hamming_distance(other_seq)
-    shorter_strand = sequence.size > other_seq.size ? other_seq : sequence
-    other_sequence = other_seq.split('')
+  def hamming_distance(other_sequence)
+    shorter_strand = sequence.size > other_sequence.size ? other_sequence : sequence
     hamming_distance = 0
-    sequence.split('').each_with_index do |amino_acid, idx|
-      hamming_distance += 1 if amino_acid != other_sequence[idx]
-      break if idx >= shorter_strand.size - 1
+    shorter_strand.size.times do |idx|
+      hamming_distance += 1 if sequence[idx] != other_sequence[idx]
     end
     hamming_distance
   end
