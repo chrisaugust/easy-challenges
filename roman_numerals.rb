@@ -79,9 +79,8 @@ class RomanNumeral
   def to_roman
     roman_numeral_str = ''
     number_components = decimal_to_number_components
-    p number_components
     number_components.reverse_each { |number| roman_numeral_str << DECIMAL_TO_ROMAN[number] }
-    p roman_numeral_str
+    roman_numeral_str
   end
 
   private
